@@ -10,7 +10,5 @@
         $i++;
     };
     $datas = array_reverse($datas);
-    foreach($datas as $data){
-        echo $data;
-    }
+    echo json_encode($datas);
 ?>

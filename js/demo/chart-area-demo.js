@@ -32,15 +32,17 @@ var request = new XMLHttpRequest();
 request.open('GET', 'getChartDay.php', false);
 request.send();
 var days = request.responseText;
+var daysObject = JSON.parse(days);
 request.open('GET', 'getChartData.php', false);
 request.send();
 var values = request.responseText;
+var valuesObject = JSON.parse(values);
 
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: [days.split()],
+    labels: daysObject,
     datasets: [{
       label: "People",
       lineTension: 0.3,
@@ -54,7 +56,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [values.split()],
+      data: valuesObject,
     }],
   },
   options: {

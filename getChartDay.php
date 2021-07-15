@@ -12,7 +12,5 @@
         $i++;
     };
     $days = array_reverse($days);
-    foreach($days as $dayName){
-        echo $dayName;
-    }
+    echo json_encode($days);
 ?>
