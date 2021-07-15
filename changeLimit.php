@@ -12,7 +12,7 @@
         $row = mysqli_fetch_assoc($query);
         $batas_ruangan = $row['batas_pengunjung'];
         include "send-antares.php";
-
+        
         send('RealDevice_Limit','RoomOccupancyCounter',array("Batas"=>"$batas_ruangan"));
     }
 

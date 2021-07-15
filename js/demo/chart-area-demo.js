@@ -28,11 +28,18 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Area Chart Example
+var request = new XMLHttpRequest();
+request.open('GET', 'getChartDay.php', false);
+request.send();
+var days = request.responseText;
+request.open('GET', 'getChartData.php', false);
+request.send();
+var values = request.responseText;
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+    labels: [days.split()],
     datasets: [{
       label: "People",
       lineTension: 0.3,
@@ -46,7 +53,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [76,95,67,88,224,262,381],
+      data: [values.split()],
     }],
   },
   options: {
