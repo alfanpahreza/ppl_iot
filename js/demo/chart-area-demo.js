@@ -35,6 +35,7 @@ var days = request.responseText;
 request.open('GET', 'getChartData.php', false);
 request.send();
 var values = request.responseText;
+
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
